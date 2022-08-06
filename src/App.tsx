@@ -1,10 +1,14 @@
+import { ThemeProvider } from "styled-components"
+import GlobalStyle from "./styles/globalStyles"
+
+
+import { theme } from'./styles/theme'
 
 function App() {
-  return (
-    <>
-      <h1>Hello Wellington!!!</h1>
-      <h2>Lets Get Starting</h2>
-    </>
+  return ( 
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 
