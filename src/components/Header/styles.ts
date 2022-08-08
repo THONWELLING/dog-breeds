@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const HeaderContainer = styled.head`
-  width: 88vw;
+  width: 90vw;
   height: 20vh;
   background-color: ${({theme}) => theme.colors.background};
   display: flex;

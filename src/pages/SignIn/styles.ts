@@ -17,9 +17,10 @@ export const Background = styled.div<{image: any}>`
   top: 0;
   left: 0;
   right: 0;
-  height: 67vh;
+  height: 57vh;
   background-image url(${({image}) => image});
   background-size: cover;
+  background-position: center bottom;
   background-repeat: no-repeat;
   z-index: -1;
 `
@@ -37,7 +38,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
 
   p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 400;
     font-family: Roboto, sans-serif;
     color: ${({theme}) => theme.colors.green};
@@ -46,6 +47,7 @@ export const ButtonContainer = styled.div`
       font-family: Roboto, sans-serif;
       font-size: 1rem;
       font-weight: 700;
+      color: ${({theme}) => theme.colors.primary};
     }
   }
 

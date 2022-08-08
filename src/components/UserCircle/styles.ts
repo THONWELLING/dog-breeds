@@ -13,5 +13,5 @@ export const CircleContainer = styled.div`
   margin-right: 45px;
   color: ${({theme}) => theme.colors.primary};
   font-weight: 700;
-  font-size: 2.7rem;
+  font-size: 3rem;
 `

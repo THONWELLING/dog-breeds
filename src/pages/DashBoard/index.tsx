@@ -12,8 +12,9 @@ const DashBoard = () => {
      <C.BodyContainer>
        <div>
           <Card noShadow width='90%'>
+            <h1>Lista de Raças deos Cães </h1>
               <ul>
-                <li>chihuahua{params.slug?.toUpperCase()}</li>
+                <li>chihuahua</li>
                 <li>husky</li>
                 <li>labrador </li>
                 <li>pug</li>
