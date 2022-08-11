@@ -1,14 +1,15 @@
-import axios from "axios";
-
-//Este arquivo é o responsável por estânciar o axios passan do a api a ser conectada
+import axios from'axios'
 
 
 const api = axios.create({
-  baseURL: `https://dogbreed-api.q9.com.br/`
+  baseURL: process.env.REACT_AP_API,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('@Q9:Token') || '';
+  const token = localStorage.getItem('@Inter:Token') || '';
   config.headers = {
     'Authorization': `Bearer ${token}`,
   }

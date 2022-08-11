@@ -24,7 +24,7 @@ export interface SignUpData {
 // Interface para o Context
 export interface ContextData {
   user: UserDto;
-  userSignIn: (userData: SignInData) => Promise<UserDto>;
+  userSignIn: (userData: SignInData) => Promise<boolean>;
   userSignUp: (userData: SignUpData) => Promise<UserDto>;
   getCurrentUser: () => Promise<UserDto>;
 }
