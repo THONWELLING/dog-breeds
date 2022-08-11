@@ -1,20 +1,22 @@
-import { ThemeProvider } from "styled-components"
+
 import Footer from "./components/Footer"
+import { ThemeProvider } from 'styled-components'
+import { AuthProvider } from'./Context/AuthContext'
 
-
-import Router from "./Routes"
-import GlobalStyle from "./styles/globalStyles"
-import { theme } from'./styles/theme'
-
+import Router from './Routes';
+import { theme } from './styles/theme'
+import GlobalStyle from './styles/globalStyles'
 
 function App() {
-  return ( 
+  return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router />
-      <Footer />
+      <AuthProvider>
+        <GlobalStyle />
+        <Router />
+        <Footer />
+      </AuthProvider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

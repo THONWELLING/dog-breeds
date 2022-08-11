@@ -1,24 +1,12 @@
 import api from "../api";
+import { SignInData, SignUpData } from "../../interfaces/IUser";
 
-
-export interface SignInData {
-  email: string
-  password: string
-}
-
-
-export interface SignUpData {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-}
 
 
 //Este arquivo ficará responsável peles consultas na api
 
 export const signIn = async (data: SignInData) => {
-  const user = await api.post('/signin', data)
+  const user = await api.post('/register', data)
   return user
 }
 

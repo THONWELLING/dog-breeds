@@ -21,6 +21,7 @@ export const InputContainer = styled.div`
     background: transparent;
     border: 0;
     margin: 0 42px;
+    outline: 0;
   }
 `
 
