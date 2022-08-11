@@ -9,6 +9,7 @@ import Button from '../../components/Buttom'
 import background from '../../assets/images/banner_dog.jpg'
 import logoQ9 from'../../assets/images/logoq9.png'
 import { Link, useNavigate } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
 
 
@@ -20,7 +21,7 @@ const SignIn = () => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
-  
+      const { userSignIn } = useAuth()
 
 
     const handleToSignIn = async () => {
@@ -28,13 +29,13 @@ const SignIn = () => {
         email,
         password
       }
-      // const response = await userSignIn(data)
-      // if(response.id) {
-      //   navigate('/dashboard')
-      //   return
-      // }
-      // alert('Usuário e/ou Senha Inválidos')
-       navigate('/dashboard')
+      const response = await userSignIn(data)
+      if(response.id) {
+        navigate('/dashboard')
+        return
+      }
+      alert('Usuário e/ou Senha Inválidos')
+    
     }
   
   return(

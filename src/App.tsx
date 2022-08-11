@@ -11,9 +11,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>
-        <GlobalStyle />
-        <Router />
-        <Footer />
+        <>
+          <GlobalStyle />
+          <Router />
+          <Footer />
+        </>
       </AuthProvider>
     </ThemeProvider>
   );
