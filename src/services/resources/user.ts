@@ -30,9 +30,11 @@ export const signIn = async (data: SignInData) => {
   // //MÉTODO SIMPLIFICADO
   // return api.post('/user/signin', data)
 }
+
 export const List = async () => {
   return api.get('/list')
 }
+
 export const signUp = async (data: SignUpData) => {
   return api.post('/register', data)
 }
