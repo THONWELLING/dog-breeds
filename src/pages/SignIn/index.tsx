@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import * as C from './styles'
 
@@ -8,8 +9,9 @@ import Button from '../../components/Buttom'
 
 import background from '../../assets/images/banner_dog.jpg'
 import logoQ9 from'../../assets/images/logoq9.png'
-import { Link, useNavigate } from 'react-router-dom'
-import useAuth from '../../hooks/useAuth'
+import { AuthContext } from '../../Context/AuthContext'
+
+import { SignInData } from '../../interfaces/IUser'
 
 
 
@@ -21,20 +23,17 @@ const SignIn = () => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
-      const { userSignIn } = useAuth()
+    const  auth = useContext(AuthContext)
 
+ 
 
-    const handleToSignIn = async () => {
-      const data = {
-        email,
-        password
+    const handleToSignIn = async (email: string, password: string) => {
+     if(email && password) {
+        const isLogged = await auth.userSignIn(email, password)
+          isLogged ? navigate('/dashboard') 
+          : alert('Usuário e/ou Senha Inválidos')
       }
-      const response = await userSignIn(data)
-      if(response.id) {
-        navigate('/dashboard')
-        return
-      }
-      alert('Usuário e/ou Senha Inválidos')
+     
     
     }
   
