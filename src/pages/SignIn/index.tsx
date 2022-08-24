@@ -43,7 +43,7 @@ const SignIn = () => {
       <Card  width='450px'>
         <img src={logoQ9} width={150} height={62} alt="Logotipo Da Q9"  />
         <C.InputContainer>
-          <Input placeholder='Entre Com O Email e Registre-Se'
+          <Input placeholder='Registre-Se Com Email'
             type={'email'}
             value={email}
             onChange={e => setEmail(e.target.value)}

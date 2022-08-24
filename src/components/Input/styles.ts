@@ -22,6 +22,7 @@ export const InputContainer = styled.div`
     border: 0;
     margin: 0 42px;
     outline: 0;
+
   }
 `
 
