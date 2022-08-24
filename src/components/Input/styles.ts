@@ -12,7 +12,7 @@ export const InputContainer = styled.div`
   align-items: center;
   z-index: 100;
 
-
+  
   input {
     width:100%
     font-size: 1.2rem;
