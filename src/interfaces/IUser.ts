@@ -13,6 +13,6 @@ export interface RegisterDTO {
 // Interface para o Context
 export interface ContextData {
   user: UserDto | null;
-  userSignIn: ( email: string ) => Promise<boolean>;
+  userSignIn: ( email: RegisterDTO ) => Promise<boolean>;
   userSignOut: () => void;
 }

@@ -10,6 +10,7 @@ import Button from '../../components/Buttom'
 import background from '../../assets/images/banner_dog.jpg'
 import logoQ9 from'../../assets/images/logoq9.png'
 import { AuthContext } from '../../Context/AuthContext'
+import { RegisterDTO } from '../../interfaces/IUser'
 
 
 
@@ -25,9 +26,10 @@ const SignIn = () => {
 
  
 
-    const handleToSignIn = async (email: string) => {
+    const handleToSignIn = async () => {
+      const body: RegisterDTO = { email };
      if( email ) {
-        const isLogged = await auth.userSignIn(email)
+        const isLogged = await auth.userSignIn(body)
           if(isLogged) {
             navigate('/dashboard') 
           } else {
@@ -53,7 +55,6 @@ const SignIn = () => {
           <Button 
             type='button'
             onClick={handleToSignIn}
-           
           >
             Registrar
           </Button>
