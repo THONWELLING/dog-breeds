@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import * as C from './styles'
 
@@ -7,10 +7,10 @@ import Card from '../../components/Card'
 import Input from '../../components/Input'
 import Button from '../../components/Buttom'
 
+
 import background from '../../assets/images/banner_dog.jpg'
 import logoQ9 from'../../assets/images/logoq9.png'
-import { AuthContext } from '../../Context/AuthContext'
-import { RegisterDTO } from '../../interfaces/IUser'
+import { AuthContext } from '../../contexts/Auth/AuthContext'
 
 
 
@@ -19,26 +19,24 @@ import { RegisterDTO } from '../../interfaces/IUser'
 
 
 const SignIn = () => {
+  const auth = useContext(AuthContext)
     const [email, setEmail] = useState('')
 
     const navigate = useNavigate()
-    const  auth = useContext(AuthContext)
-
- 
-
-    const handleToSignIn = async () => {
-      const body: RegisterDTO = { email };
-     if( email ) {
-        const isLogged = await auth.userSignIn(body)
-          if(isLogged) {
-            navigate('/dashboard') 
-          } else {
-            alert('Usuário e/ou Senha Inválidos')
-          }
-      }
-    
-    }
+   
   
+  const handleSignIn = async () => {
+    const isLogged = await auth.signin(email)
+    console.log('EMAIL DO HANDLESIGNIN =>',email)
+    if (email) {
+      if (isLogged) {
+        navigate('/dashboard') 
+      } else {
+        alert('Não deu Certo')
+      }
+    }
+  }
+
   return(
     <C.Container>
       <C.Background image={background} />
@@ -54,7 +52,7 @@ const SignIn = () => {
         <C.ButtonContainer>
           <Button 
             type='button'
-            onClick={handleToSignIn}
+            onClick={handleSignIn}
           >
             Registrar
           </Button>

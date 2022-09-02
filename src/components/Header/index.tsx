@@ -3,10 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import logoQ9 from '../../assets/images/logoq9.png'
 import Button from '../Buttom'
 import UserCircle from '../UserCircle'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/Auth/AuthContext'
 
 
 
 const Header = () => {
+  const auth = useContext(AuthContext)
+
   const navigate = useNavigate()
 
   const handlelogOut = () => {
@@ -22,7 +26,7 @@ const Header = () => {
         <UserCircle initials='WO' />
         <div>
           <p>Olá, <span className='primary-color font-bold'>
-            Wellington Oliveira</span>
+            {auth.user?.email}</span>
           </p>
           
             <Button style={{height:'16px'}} 

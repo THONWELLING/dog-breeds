@@ -1,7 +1,7 @@
 
 //Interface de dados do usuário
 export interface UserDto {
-  id: string;
+  _id: string;
   email: string;
 }
 

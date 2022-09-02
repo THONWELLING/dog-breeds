@@ -1,2 +1,4 @@
 /// <reference types="vite/client" />
 VITE_REACT_APP_API='https://dogbreed-api.q9.com.br';
+
+VITE_REACT_APP_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyYzJkYzExZC0zODlkLTRiMjQtYjk2Ny05MTE5MTJiOTA0NTUiLCJzdWIiOiI2MmYzMWQ3ZWNkZDJhOGExY2U3NjNlNWEiLCJpYXQiOjE2NjAwOTk5NjYsImV4cCI6MTY2MTM5NTk2Nn0.vexekV4KLCiOoR-7iaPAzwmE8cafrgPHigNjyF69urY"

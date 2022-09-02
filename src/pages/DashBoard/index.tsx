@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 
 
 const DashBoard = () => {
+
+
   const params = useParams()
   return(
     <C.DashboardBackground>

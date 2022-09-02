@@ -2,20 +2,26 @@ import axios from "axios"
 
 
 const api = axios.create({
-  baseURL: import.meta.env. VITE_REACT_APP_API
+  baseURL: 'https://dogbreed-api.q9.com.br'
 })
+
 
 export const useApi = () => ({
   validateToken: async (token: string) => {
-    const response = await api.post('/register', { token })
+    //  return {
+    //   user: { email: "thon@thon.com", _id: "62f31d7ecdd2a8a1ce763e5a" },
+    // }
+    const response = await api.post('/validate', { token })
     return response.data
   },
-  signIn: async (email: string) => {
-   const response = await api.post('/register',  email )
+  signin: async (email: string) => {
+
+    const response = await api.post('/register', { email })
     return response.data
   },
-  logOut: async () => {
-    const response = await api.post('/register')
+  logout: async () => {
+    return { status: true}
+    const response = await api.post('/signout')
     return response.data
   }
 })

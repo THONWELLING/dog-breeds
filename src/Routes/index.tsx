@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { RequireAuth } from "../Context/RequireAuth";
+import { RequireAuth } from "../contexts/Auth/RequireAuth";
 
 
 import DashBoard from "../pages/DashBoard";
@@ -12,7 +12,10 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={ <SignIn /> } />
-        <Route path='/dashboard' element={<RequireAuth><DashBoard /></RequireAuth>} />
+        <Route path='/dashboard' element={
+        <RequireAuth>
+          <DashBoard />
+        </RequireAuth> } />
         <Route path='/*' element={ <NotFoundPage /> } />
       </Routes>
     </BrowserRouter>
