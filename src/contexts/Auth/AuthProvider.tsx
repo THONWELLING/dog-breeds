@@ -24,21 +24,21 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
  const signin = async ( email: string ) => {
 
-  const user = await api.signin(email)
+  const { user } = await api.signin(email)
 
+  console.log('User', user)
   if( user.token ) {
     localStorage.setItem('@Q9:authToken', user.token)
     console.log('@Q9:authToken =>', user.token)
     setUser(user)
     return true
   }
-    console.log('User', user)
   return false
  }
 
  const signout = async () => {
   await api.logout()
-  setUser(null)
+  setUser('')
   // setToken('')
  }
 
