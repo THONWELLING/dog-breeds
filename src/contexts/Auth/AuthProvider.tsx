@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useApi } from "../../hooks/useApi"
 import { UserDto } from "../../interfaces/IUser"
 import { AuthContext } from "./AuthContext"
@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthContext"
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   const api = useApi()
 
-    const [user, setUser] = useState<UserDto>(() => {
+  const [user, setUser] = useState<UserDto>(() => {
 
     //esta função passada no useState vai no localStorage e pega o usuário e
     //logo em seguida faz uma validação  se o usuário existe ele joga dentro do state caso não exista  ele retorna um objeto vazio
@@ -22,19 +22,19 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     return {} as UserDto
   })
 
- const signin = async ( email: string ) => {
+  const signin = async ( email: string ) => {
 
-  const { user } = await api.signin(email)
+    const { user } = await api.signin(email)
+    console.log('User', user)
 
-  console.log('User', user)
-  if( user.token ) {
-    localStorage.setItem('@Q9:authToken', user.token)
-    console.log('@Q9:authToken =>', user.token)
-    setUser(user)
-    return true
+    if( user.token ) {
+      localStorage.setItem('@Q9:authToken', user.token)
+      console.log('@Q9:authToken =>', user.token)
+      setUser(user)
+      return true
+    }
+    return false
   }
-  return false
- }
 
  const signout = async () => {
   await api.logout()

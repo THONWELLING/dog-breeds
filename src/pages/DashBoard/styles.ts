@@ -50,3 +50,24 @@ export const InlineContainer = styled.div`
     flex: 1;
   }
 `
+
+export const Button =styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #ebb365;
+
+
+  &:hover {
+    width: 80%;
+    cursor: pointer;
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 10px;
+  }
+`

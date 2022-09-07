@@ -1,18 +1,16 @@
-import axios from "axios"
+import api from "../resources/api"
 
-
-const api = axios.create({
-  baseURL: 'https://dogbreed-api.q9.com.br'
-})
 
 
 export const useApi = () => ({
-  validateToken: async (token: string) => {
-    //  return {
-    //   user: { email: "thon@thon.com", _id: "62f31d7ecdd2a8a1ce763e5a" },
-    // }
-    const response = await api.post('/validate', { token })
+  getList: async ( breed: string) => {
+    try {
+    const response = await api.get(`/list?breed=${breed}` )
     return response.data
+    console.log(response.data)
+    } catch (error) {
+      console.error(error)
+    }
   },
   signin: async (email: string) => {
 
