@@ -4,13 +4,9 @@ import api from "../resources/api"
 
 export const useApi = () => ({
   getList: async ( breed: string) => {
-    try {
-    const response = await api.get(`/list?breed=${breed}` )
+
+    const response = await api.get('/list')
     return response.data
-    console.log(response.data)
-    } catch (error) {
-      console.error(error)
-    }
   },
   signin: async (email: string) => {
 

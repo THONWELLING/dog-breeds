@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     console.log('User', user)
 
     if( user.token ) {
-      localStorage.setItem('@Q9:authToken', user.token)
+      setToken(user.token)
       console.log('@Q9:authToken =>', user.token)
       setUser(user)
       return true
@@ -36,18 +36,30 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     return false
   }
 
+  const getList = async (dataList: string[], breed: string) => {
+    try {
+      const data = await api.getList(`?breed=${breed}`)
+      console.log(data)
+       dataList = data
+      return data
+    } catch (err) {
+      console.error(err);
+      
+    }
+
+  }
  const signout = async () => {
   await api.logout()
   setUser('')
-  // setToken('')
+  setToken('')
  }
 
-  // const setToken = (token: string) => {
-  //   localStorage.setItem('authToken', token)
-  // }
+  const setToken = (token: string) => {
+    localStorage.setItem('@Q9:authToken', token)
+  }
 
   return (
-    <AuthContext.Provider value={{ user, signin, signout }}>
+    <AuthContext.Provider value={{ user, signin, signout, getList }}>
       {children}
     </AuthContext.Provider>
   )

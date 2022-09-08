@@ -9,6 +9,13 @@ export const DashboardBackground = styled.main`
   align-items: center;
   flex-direction: column;
   background-color: ${({theme}) => theme.colors.backgroundLight};
+
+  h1 {
+    font-size: 25px;
+    margin-top: 40px;
+    color: ${({theme}) => theme.colors.secondary};
+  
+  }
 `
 
 export const BodyContainer = styled.main`
